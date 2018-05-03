@@ -1,59 +1,92 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
-import Header from './components/header';
-import TobuyInput from './components/tobuyInput';
-import TobuyItem from './components/tobuyItem';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Header from './components/Header';
+//import TobuyInput from './components/TobuyInput';
+//import TobuyItem from './components/TobuyItem';
+import Login from "./components/Login";
+//import Database from "./utils";
+import Nav from "./components/Nav";
+import Lists from "./pages/Lists";
 
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      todos: [
-        {id: 0, text: "Make a functioning app"},
-        {id: 1, text: "Make an app that functions"},
-        {id: 2, text: "get anything working really"}
-      ],
-      nextId: 3
-    };
 
-    this.addTodo = this.addTodo.bind(this);
-    this.removeTodo = this.removeTodo.bind(this);
-  }
+const App = () => ( 
+<Router>
 
-  addTodo(todoText) {
-    let todos = this.state.todos.slice();
-    todos.push({id: this.state.nextId, text: todoText});
-    this.setState({
-      todos: todos,
-      nextId: ++this.state.nextId
-    });
-  }
 
-  removeTodo(id) {
-    this.setState({
-        todos: this.state.todos.filter((todo, index) => todo.id !== id)
-      });
-  }
+  <div>
+    <Nav />
+    <Route path="/login" exact component={Login} />
 
-  render() {
-    return (
-      <div className="App">
-        <div className="todo-wrapper">
-          <Header />
-          <TobuyInput todoText="" addTodo={this.addTodo} />
-          <ul>
-            {
-              this.state.todos.map((todo) => {
-                return <TobuyItem todo={todo} key={todo.id} id={todo.id} removeTodo={this.removeTodo}/>
-              })
-            }
-          </ul>
-        </div>
-      </div>
-    );
-  }
-}
+      <Switch>
+     
+      <Route exact path="Header" component={Header} />
+      <Route exact path="/lists" components={Lists} />
+
+    </Switch> 
+    
+  </div>
+ </Router> 
+
+);
+
 
 export default App;
+
+//<Route path="/login" exact component={Login} />
+// export default App;
+// const App extends Component {
+  
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       tobuys: [
+//         {id: 0, text: "Make a functioning app"},
+//         {id: 1, text: "Make an app that functions"},
+//         {id: 2, text: "get anything working really"}
+//       ],
+//       nextId: 3
+//     };
+
+//     this.addTobuy = this.addTobuy.bind(this);
+//     this.removeTobuy = this.removeTobuy.bind(this);
+//   }
+
+//   addTobuy(tobuyText) {
+//     let tobuy = this.state.tobuy.slice();
+//     tobuy.push({id: this.state.nextId, text: tobuy});
+//     this.setState({
+//       tobuy: tobuy,
+//       nextId: ++this.state.nextId
+//     });
+//   }
+
+//   removeTobuy(id) {
+//     this.setState({
+//         tobuy: this.state.tobuy.filter((tobuy, index) => tobuy.id !== id)
+//       });
+//   }
+
+//   render() {
+//     return (
+//       <div className="App">
+//         <div className="tobuywrapper">
+//           <Header />
+          
+//           <TobuyInput tobuyText="" addTobuy={this.addTobuy} />
+//           <ul>
+//             {
+//               this.state.tobuys.map((tobuy) => {
+//                 return <TobuyItem tobuy={tobuy} key={tobuy.id} id={tobuy.id} removeTobuy={this.removeTobuy}/>
+//               })
+//             }
+//           </ul>
+//         </div>
+//       </div>
+//     );
+//   }
+// }
+
+
+// export default App;

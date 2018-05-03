@@ -1,0 +1,51 @@
+.tobuyWrapper {
+  border-bottom: 1px solid #efefef;
+  text-align: left;
+  margin-bottom: 10px;
+}
+.removeTobuy {
+  margin-right: 20px;
+  margin-bottom: 10px;
+  outline: none;
+  box-shadow: none;
+  border-width: 2px;
+  border-radius: 3px;
+  border-style: solid;
+  padding: 8px;
+  color: rgba(203, 20, 32, 0.4);
+  border-color: rgba(203, 20, 32, 0.4);
+  background-color: transparent;
+}
+
+
+.btn {
+  outline: none;
+  box-shadow: none;
+  border-width: 2px;
+  border-radius: 3px;
+  border-style: solid;
+  padding: 8px;
+}
+
+.btn-primary {
+  color: #7D7396FF;
+  border-color: #7D7396FF;
+  background-color: transparent;
+}
+
+input {
+  width: 80%;
+  border: none;
+  border-top: 2px solid #7D7396FF;
+  border-bottom: 2px solid #7D7396FF;
+  margin-right: 10px;
+  padding: 5px;
+  line-height: 17px;
+}
+
+input:focus {
+  outline: none;
+  border: none;
+  border-top: 2px solid #7D7396FF;
+  border-bottom: 2px solid #7D7396FF;
+}
